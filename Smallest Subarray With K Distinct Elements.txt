@@ -1,0 +1,70 @@
+
+// Brute Force Approach 
+
+#include<bits/stdc++.h>
+vector<int> smallestSubarrayWithKDistinct(vector<int> &arr, int k)
+{
+    // Write your code here.
+    int j;
+    int n=arr.size();
+    int start=0,end=n;
+    for(int i=0;i<n;i++){
+        unordered_set<int>set;
+        for(j=i;j<n;j++){
+            set.insert(arr[j]);
+            
+            if(set.size()==k){
+                if(j-i<end-start){
+                    start=i;
+                    end=j;
+                }break;
+            }
+        }
+        if(j==n)break;
+    }
+        vector<int>ans;
+        if(end==n){
+            ans.push_back(-1);
+        }else{
+            ans.push_back(start);
+            ans.push_back(end);
+        }
+        return ans;
+}
+
+
+// Sliding Window Approach
+
+
+
+
+#include<bits/stdc++.h>
+vector<int> smallestSubarrayWithKDistinct(vector<int> &arr, int k)
+{
+    int st=0;
+    unordered_map<int,int>freqMap;
+    int sizeOfArray=arr.size();
+    int smallestSubarraySize=INT_MAX;
+    int stWindow=-1,endWindow=-1;
+    for(int i=0;i<sizeOfArray;i++){
+        freqMap[arr[i]]++;
+        while(freqMap.size()>=k){
+            if(freqMap.size() == k){
+                int currWindowLength=i-st+1;
+                if(smallestSubarraySize>currWindowLength){
+                    smallestSubarraySize = currWindowLength;
+                    stWindow = st;
+                    endWindow = i;
+                }
+            }
+            freqMap[arr[st]]--;
+            if(freqMap[arr[st]]<=0)
+                freqMap.erase(arr[st]);
+            st++;
+        }
+    }
+    if(smallestSubarraySize == INT_MAX)
+        return vector<int>{-1};
+    return vector<int>{stWindow,endWindow};
+}
+
