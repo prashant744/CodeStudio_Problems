@@ -1,0 +1,25 @@
+a=int(input())
+
+evensum=0
+
+oddsum=0
+
+while(a>0):
+
+   b=a%10
+
+   a=a//10
+
+   
+
+   if b%2==0:
+
+       evensum=evensum+b
+
+   else:
+
+       oddsum=oddsum+b
+
+     
+
+print(evensum,oddsum)          
