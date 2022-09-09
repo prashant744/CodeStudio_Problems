@@ -1,0 +1,21 @@
+
+
+
+
+def removeAllOccurrencesOfChar(string,c):
+    a=""
+#     print(a)
+    #Your code goes here.
+    for i in range(len(string)):
+        if string[i]!=c:
+            a+=string[i]
+            
+    return a
+            
+
+
+
+string = input()
+c = input()
+output = removeAllOccurrencesOfChar(string,c)
+print(output)

@@ -1,0 +1,15 @@
+from sys import stdin
+
+
+
+def reverseEachWord(string) :
+     return " ".join([i[::-1]  for i in string.split()])
+    
+    #Your code goes here.
+
+#main
+string = stdin.readline().strip()
+
+ans = reverseEachWord(string)
+
+print(ans)

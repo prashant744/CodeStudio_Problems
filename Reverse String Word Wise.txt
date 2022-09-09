@@ -1,0 +1,16 @@
+
+
+def reverseStringWordWise(string):
+    str=string.split()
+    for i in range(len(str)):
+        return " ".join(str[::-1])
+    
+    #Your code goes here
+
+
+
+
+string = input()
+ans = reverseStringWordWise(string)
+print(ans)
+        

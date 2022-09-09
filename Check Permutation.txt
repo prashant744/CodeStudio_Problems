@@ -1,0 +1,18 @@
+
+
+
+def isPermutation(string1, string2) :
+    
+    #Your code goes here
+     return sorted(string1) == sorted(string2)
+#main
+string1 = input()
+string2 = input()
+
+ans = isPermutation(string1, string2)
+
+if ans :
+    print('true')
+else :
+    print('false')
+

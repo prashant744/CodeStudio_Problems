@@ -1,0 +1,45 @@
+
+from sys import stdin
+
+
+def countWords(string) :
+	# Your code goes here
+    return len(string.split(" "))
+    
+    string=stdin.readline().strip();
+    count=countWords(string)
+    print(count)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+#main
+string = stdin.readline().strip();
+count = countWords(string)
+
+print(count)
+

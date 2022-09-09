@@ -1,0 +1,17 @@
+from sys import stdin
+
+def removeConsecutiveDuplicates(string) :
+
+    #Your code goes here.
+    a=string[0]
+    for i in range(len(string)-1):
+        if string[i]!=string[i+1]:
+            a+=string[i+1]
+    return a
+
+#main
+string = stdin.readline().strip()
+
+ans = removeConsecutiveDuplicates(string)
+
+print(ans)
