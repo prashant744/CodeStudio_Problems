@@ -1,0 +1,17 @@
+  c0=0
+    c1=0
+    c2=0
+    for i in arr:
+        if i is 0:
+            c0+=1
+        elif i is 1:
+            c1+=1
+        else:
+            c2+=1
+    arr.clear()
+    for i in range(c0):
+        arr.append(0)
+    for i in range(c1):
+        arr.append(1)
+    for i in range(c2):
+        arr.append(2)
