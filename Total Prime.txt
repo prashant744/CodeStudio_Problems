@@ -1,0 +1,28 @@
+
+
+
+#Write your totalPrime function here.
+
+def checkprime(n):
+    if n==0:
+        return 0
+    
+    for i in range(2,n):
+        if n%i==0:
+            return 0
+    return 1
+
+def totalPrime(S,E):
+    cnt=0
+    for i in range(S,E+1):
+        if checkprime(i):
+            cnt+=1
+    return cnt
+
+
+    
+#Taking S and E space seperated input.
+S,E = map(int,input().split(' '))
+print(totalPrime(S,E))
+
+
