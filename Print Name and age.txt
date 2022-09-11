@@ -1,0 +1,32 @@
+class Person:
+    def setvalue(self,name,age):
+        self.name=name
+        self.age=age
+     
+    def getvalue(self):
+         print("The name of the person is {} and the age is {}.".format(name,age))
+
+    #create your class here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Driver code goes here.
+P=Person()
+name=input()
+age=int(input())
+P.setvalue(name,age)
+P.getvalue()
