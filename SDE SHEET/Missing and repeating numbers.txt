@@ -1,0 +1,18 @@
+#include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
+
+pair<int,int> missingAndRepeating(vector<int> &arr, int n)
+{
+     // Write your code here 
+    vector<int>check(n+1,0);
+    for(int i=0;i<n;i++){
+        check[arr[i]]++;
+    }
+    pair<int,int>ans;
+    for(int i=1;i<=n;i++){
+        if(check[i]==0) ans.first=i;
+        if(check[i]>1) ans.second=i;
+    }
+    return ans;
+ 
+}
