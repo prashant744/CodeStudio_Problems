@@ -1,0 +1,23 @@
+int bestInsertPos(vector<int> arr, int n, int m)
+{
+    // Write your code here.
+    int start = 0;
+    int end = n-1;
+    int mid =(start+end)/2;
+    while(start <=end){
+        if(arr[mid]==m){
+            return mid;
+        }
+        else if(m>arr[mid] && m<arr[mid+1]){
+            return mid+1;
+        }
+        else if(m>arr[mid]){
+            start = mid+1;
+        }
+        else{
+            end = mid-1;
+        }
+        mid = (start+end)/2;
+    }
+    return start;
+}
