@@ -1,0 +1,10 @@
+#include <bits/stdc++.h> 
+vector < int > countSmallerOrEqual(int * a, int * b, int n, int m) {
+    //  Write your code here    
+    sort(b,b+m);
+    vector<int>v(n);
+    for(int i=0;i<n;i++){
+        v[i]=upper_bound(b,b+m,a[i])-b;
+    }
+    return v;
+}
