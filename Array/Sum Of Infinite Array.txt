@@ -1,0 +1,37 @@
+vector<int> sumInRanges(vector<int> &arr, int n, vector<vector<long long>> &qrr, int q) {
+   
+    int mod=1e9+7;
+
+    vector<long long>sarr(n+1,0);    // to store the prefix sum
+    
+    for(int i=1;i<=n;i++)
+    {
+        sarr[i]=(sarr[i-1]+arr[i-1])%mod;
+    }
+    
+    vector<int>ans;               //to store the final answer         
+    
+    for(int i=0;i<q;i++)
+    {
+        long long l,r;
+        l=qrr[i][0];
+        r=qrr[i][1];
+        
+        long long grp=(r/n)%mod;
+        long long res=(grp*sarr[n])%mod;
+        res=(res+sarr[r%n])%mod;
+        long long rsum=res;
+        
+        l-=1;
+        grp=(l/n)%mod;
+        res=(grp*sarr[n])%mod;
+        res=(res+sarr[l%n])%mod;
+        long long lsum=res;
+
+        int sum=((rsum-lsum+mod)%mod);
+      
+        ans.push_back(sum);
+    }
+
+    return ans;
+}
