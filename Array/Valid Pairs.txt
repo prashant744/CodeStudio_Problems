@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+bool isValidPair(vector<int> &arr, int n, int k, int m)
+{
+    // Write your code here.
+    if(n&1)
+        return false;
+    
+    unordered_map<int,int>mp;
+    
+    for(int i = 0;i<n; i++){
+        mp[arr[i]%k]++;
+        
+    }
+    
+    int check1,check2;
+    for(int i = 0; i<n;i++){
+        check1 = mp[arr[i]%k];
+        
+        if(arr[i]%k <=m){
+            check2 = mp[m-arr[i]%k];
+        }
+        else{
+            check2 = mp[k-(arr[i]%k) +m];
+        }
+        if(check1 !=check2)
+            return false;
+    }
+    return true;
+    }
