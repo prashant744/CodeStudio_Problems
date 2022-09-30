@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+vector<int> printArrayAfterKOperations(vector<int> &Arr, int N, int K) {
+    if(K==0) return Arr;
+    if(K&1) {
+        
+        int maxel = *max_element(Arr.begin(), Arr.end());
+
+        for(int i=0; i<N; i++) {
+            Arr[i] = maxel - Arr[i];
+        }
+        
+
+    }else {
+
+        int maxel = *max_element(Arr.begin(), Arr.end());
+
+        for(int i=0; i<N; i++) {
+            Arr[i] = maxel - Arr[i];
+        }
+        
+        maxel = *max_element(Arr.begin(), Arr.end());
+
+        for(int i=0; i<N; i++) {
+            Arr[i] = maxel - Arr[i];
+        }
+
+    }
+    return Arr;
+    
+}
