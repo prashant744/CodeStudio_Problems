@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+bool isValid(int count[], int k)
+{
+    int val = 0;
+    for (int i=0; i<26; i++)
+        if (count[i] > 0)
+            val++;
+    return (k >= val);
+}
+int getLengthofLongestSubstring(string s, int k) {
+    int count[26]={0};
+    int curr_start=0,curr_end=0,max_window_size=1;
+    count[s[0]-'a']++;
+    for(int i=1;i<s.length();i++)
+    {
+        count[s[i]-'a']++;
+        curr_end++;
+        while(!isValid(count,k))
+        {
+            count[s[curr_start]-'a']--;
+            curr_start++;
+        }
+        max_window_size=max(curr_end-curr_start+1,max_window_size);
+    }
+    return max_window_size;
+}

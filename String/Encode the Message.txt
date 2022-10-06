@@ -1,0 +1,20 @@
+string encode(string &message)
+{
+    string ans;
+    int count = 1, n = message.length(), push = 0;
+    ans.push_back(message[0]);
+    for(int i = 1; i < n; i++){
+        if(message[i - 1] == message[i]){
+            count++;
+        }
+        else if(message[i - 1] != message[i]){
+            string s = to_string(count);
+            ans.append(s);
+            ans.push_back(message[i]);
+            count = 1;
+        }
+    }
+    string s = to_string(count);
+    ans.append(s);
+    return ans;
+}
