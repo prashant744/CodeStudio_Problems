@@ -1,0 +1,15 @@
+#include <bits/stdc++.h> 
+char findNonRepeating(string str) {
+    // Write your code here.
+    map<char,int>m;
+    char ans='#';
+    for(int i=0;i<str.size();i++){
+        m[str[i]]= m[str[i]]+1;
+    }
+    for(int i=0;i<str.size();i++){
+        if(m[str[i]]==1){
+            return str[i];
+        }
+    }
+    return ans;
+}
