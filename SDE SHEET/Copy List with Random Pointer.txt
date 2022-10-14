@@ -1,0 +1,55 @@
+#include <bits/stdc++.h> 
+#include <bits/stdc++.h> 
+/*************************************************************
+
+    Following is the LinkedListNode class structure
+
+    template <typename T>   
+    class LinkedListNode
+    {
+        public:
+        T data;
+        LinkedListNode<T> *next;
+        LinkedListNode<T> *random;
+        LinkedListNode(T data)
+        {
+            this->data = data;
+            this->next = NULL;
+        }
+    };
+
+*************************************************************/
+
+LinkedListNode<int> *cloneRandomList(LinkedListNode<int> *head)
+{
+    // Write your code here.
+    if(head==NULL)return head;
+    LinkedListNode<int>* curr=head;
+    
+    while(curr){
+        LinkedListNode<int>*next=curr->next;
+        LinkedListNode<int>*CloneNode=new LinkedListNode<int>(curr->data);
+        curr->next=CloneNode;
+        curr->next->next=next;
+        curr=next;
+    }
+    curr=head;
+    while(curr!=NULL){
+        curr->next->random = (curr->random!=NULL)?curr->random->next:NULL;
+        curr=curr->next->next;
+    }
+    curr=head;
+    LinkedListNode<int>*CloneNode = new LinkedListNode<int>(0);
+    LinkedListNode<int>*CloneTail=CloneNode;
+    
+    while(curr){
+        LinkedListNode<int>*next=curr->next->next;
+        CloneTail->next=curr->next;
+        curr->next=next;
+        curr=next;
+        CloneTail=CloneTail->next;
+        
+    }
+    CloneTail->next=NULL;
+    return CloneNode->next;
+}
