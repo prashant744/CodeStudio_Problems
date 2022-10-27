@@ -1,0 +1,11 @@
+#include <bits/stdc++.h> 
+vector<int> searchInSortedArray(vector<int> &arr, int n, vector<int> &queries, int q)
+{
+	// Write your code here.
+    vector<int>ans(q,0);
+    for(int i=0;i<q;i++){
+        int target=queries[i];
+        ans[i]=binary_search(arr.begin(), arr.end(), target);
+    }
+    return ans;
+}

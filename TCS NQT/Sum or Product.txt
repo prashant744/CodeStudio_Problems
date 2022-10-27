@@ -1,0 +1,18 @@
+#include <bits/stdc++.h> 
+const int M=1e9+7;
+long long int sumOrProduct(long long int n, long long int q)
+{
+	// Write your code here.
+    long long int sum=0;
+    long long int prod=1;
+    
+    for(long long int i=1;i<=n;i++){
+        if(q==1){
+            sum+=i;
+        }else if(q==2){
+            prod=(prod*i)%M;
+        }
+    }
+    if(q==1)return sum;
+    if(q==2)return prod;
+}
