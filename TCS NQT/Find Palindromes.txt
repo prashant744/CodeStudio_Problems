@@ -1,0 +1,30 @@
+#include <bits/stdc++.h> 
+
+int reverse(int i){
+    int j=0;
+    while(i!=0){
+        int r=i%10;
+        j=j*10+r;
+        i/=10;
+    }
+    return j;
+}
+
+vector<int> getPalindromes(int n)
+{
+	// Write your code here
+    vector<int>v;
+    if(n<=9){
+        for(int i=1;i<=n;i++)
+            v.push_back(i);
+            return v;
+    }else{
+        for(int i=1;i<=n;i++){
+            int j=reverse(i);
+            if(j==i)
+                v.push_back(j);
+        }
+    }
+    return v;
+}
+
