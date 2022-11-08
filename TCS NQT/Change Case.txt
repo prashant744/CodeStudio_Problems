@@ -1,0 +1,11 @@
+#include <bits/stdc++.h> 
+void changeCase(string & str) {
+    // Write your code here.
+    for(int i=0;i<str.length();i++){
+        if(str[i]>='a' && str[i]<='z'){
+            str[i]-=32;
+        }else{
+            str[i]+=32;
+        }
+    }
+}
