@@ -1,0 +1,16 @@
+#include <bits/stdc++.h> 
+
+long long findGcd(long long x,long long y){
+    if(x==0){
+        return y;
+    }
+    return findGcd(y%x,x);
+}
+
+long long LCM(int x, int y)
+{
+  // Write your code here.
+    double z=double(x)*double(y);
+    return z/findGcd(x,y);
+
+}
