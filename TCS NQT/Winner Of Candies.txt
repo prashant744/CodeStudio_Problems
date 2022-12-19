@@ -1,0 +1,19 @@
+string winnerOfCandies(int x, int y){
+    // Write your code here.
+    int term=1;
+    while(x>0&&y>0){
+        if(term%2){
+            x=x-term;
+            y=y+term;
+        }else{
+            y=y-term;
+            x=x+term;
+        }
+        term++;
+    }
+    if(x>0){
+        return "Win";
+    }else{
+        return "Lose";
+    }
+}
